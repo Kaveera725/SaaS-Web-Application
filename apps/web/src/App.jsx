@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import BillingPage from "./pages/BillingPage";
-import DashboardPage from "./pages/DashboardPage";
+import Dashboard from "./pages/Dashboard";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import Login from "./pages/Login";
 import ProfilePage from "./pages/ProfilePage";
@@ -28,7 +28,7 @@ export default function App() {
           </ProtectedRoute>
         }
       >
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/billing" element={<BillingPage />} />
