@@ -35,6 +35,8 @@ class User(db.Model):
     )
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
 
+    subscription = db.relationship("Subscription", back_populates="user", uselist=False)
+
     def set_password(self, password: str) -> None:
         hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
         self.password_hash = hashed.decode("utf-8")
