@@ -58,7 +58,7 @@ def create_app(config_object=None) -> Flask:
 	app.config.from_object(_resolve_config(config_object))
 
 	init_extensions(app)
-	import app.models  # noqa: F401
+	from app import models as app_models  # noqa: F401
 	register_cli(app)
 	_register_blueprints(app)
 	_register_error_handlers(app)
