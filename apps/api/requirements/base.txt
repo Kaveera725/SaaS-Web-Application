@@ -4,5 +4,6 @@ Flask-Migrate
 Flask-JWT-Extended
 Flask-Cors
 Flask-Limiter
+bcrypt
 psycopg[binary]
 python-dotenv
