@@ -6,6 +6,7 @@ from flask import Flask, jsonify
 from app.api.v1.auth import auth_bp
 from app.api.v1.billing import billing_bp
 from app.api.v1.users import users_bp
+from app.cli import register_cli
 from app.config import DevelopmentConfig, ProductionConfig, TestingConfig
 from app.extensions import init_extensions
 
@@ -58,6 +59,8 @@ def create_app(config_object=None) -> Flask:
 	app.config.from_object(_resolve_config(config_object))
 
 	init_extensions(app)
+	import app.models  # noqa: F401
+	register_cli(app)
 	_register_blueprints(app)
 	_register_error_handlers(app)
 
