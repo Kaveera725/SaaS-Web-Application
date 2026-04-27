@@ -54,8 +54,12 @@ export function AuthProvider({ children }) {
     return refreshPromiseRef.current;
   }, []);
 
-  const login = useCallback(async (email, password) => {
-    const response = await apiClient.post("/auth/login", { email, password });
+  const login = useCallback(async (email, password, rememberMe = false) => {
+    const response = await apiClient.post("/auth/login", {
+      email,
+      password,
+      remember_me: rememberMe,
+    });
     const payload = response?.data || {};
 
     if (!payload.success) {

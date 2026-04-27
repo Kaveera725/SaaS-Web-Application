@@ -4,7 +4,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import BillingPage from "./pages/BillingPage";
 import DashboardPage from "./pages/DashboardPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import LoginPage from "./pages/LoginPage";
+import Login from "./pages/Login";
 import ProfilePage from "./pages/ProfilePage";
 import RegisterPage from "./pages/RegisterPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
@@ -16,7 +16,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
