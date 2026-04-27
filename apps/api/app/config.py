@@ -1,20 +1,22 @@
 import os
+from datetime import timedelta
 
 
-class Config:
-    SECRET_KEY = os.getenv("SECRET_KEY", "change-me")
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "postgresql+psycopg://postgres:postgres@localhost:5432/saas_db")
+class BaseConfig:
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "change-me")
+    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)
 
 
-class DevelopmentConfig(Config):
+class DevelopmentConfig(BaseConfig):
     DEBUG = True
 
 
-class TestingConfig(Config):
+class TestingConfig(BaseConfig):
     TESTING = True
 
 
-class ProductionConfig(Config):
+class ProductionConfig(BaseConfig):
     DEBUG = False
