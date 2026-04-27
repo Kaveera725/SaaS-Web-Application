@@ -9,3 +9,4 @@ bcrypt
 marshmallow
 psycopg[binary]
 python-dotenv
+stripe
