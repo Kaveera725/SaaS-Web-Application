@@ -3,9 +3,9 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, jsonify
 
-from app.api.v1.auth import auth_bp
 from app.api.v1.billing import billing_bp
 from app.api.v1.users import users_bp
+from app.blueprints import auth_bp
 from app.cli import register_cli
 from app.config import DevelopmentConfig, ProductionConfig, TestingConfig
 from app.extensions import init_extensions

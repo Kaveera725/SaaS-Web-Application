@@ -5,5 +5,6 @@ Flask-JWT-Extended
 Flask-Cors
 Flask-Limiter
 bcrypt
+marshmallow
 psycopg[binary]
 python-dotenv
