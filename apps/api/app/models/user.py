@@ -36,6 +36,7 @@ class User(db.Model):
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
 
     subscription = db.relationship("Subscription", back_populates="user", uselist=False)
+    password_reset_tokens = db.relationship("PasswordResetToken", back_populates="user", lazy="select")
 
     def set_password(self, password: str) -> None:
         hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())

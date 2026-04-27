@@ -8,6 +8,18 @@ class BaseConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)
+    PASSWORD_RESET_TOKEN_EXPIRES_SECONDS = 3600
+    SECURITY_PASSWORD_SALT = os.environ.get("SECURITY_PASSWORD_SALT")
+
+    MAIL_SERVER = os.environ.get("MAIL_SERVER")
+    MAIL_PORT = int(os.environ.get("MAIL_PORT", "0")) if os.environ.get("MAIL_PORT") else None
+    MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS", "false").lower() == "true"
+    MAIL_USE_SSL = os.environ.get("MAIL_USE_SSL", "false").lower() == "true"
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
+
+    FRONTEND_URL = os.environ.get("FRONTEND_URL")
 
 
 class DevelopmentConfig(BaseConfig):

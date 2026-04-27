@@ -4,6 +4,7 @@ Flask-Migrate
 Flask-JWT-Extended
 Flask-Cors
 Flask-Limiter
+Flask-Mail
 bcrypt
 marshmallow
 psycopg[binary]
